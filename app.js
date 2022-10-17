@@ -3,6 +3,7 @@ let computerScore = 0;
 let winner = `You win:`;
 let loser = `You lose:`;
 let tie = `It is a tie`;
+const options = ["rock", "scissors", "paper"];
 
 function computerPlay() {
   switch (Math.floor(Math.random() * 3)) {
@@ -55,6 +56,11 @@ function game() {
       "scissors"
     );
     playerSelection = playerSelection.toLowerCase();
+    if (!options.includes(playerSelection)) {
+      i--;
+      console.log("Please enter a right choice!");
+      continue;
+    }
     console.log("Option choosen by player:", playerSelection);
     computerSelection = computerPlay();
     console.log("Option choosen by computer", computerSelection);
